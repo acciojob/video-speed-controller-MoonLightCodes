@@ -1,19 +1,13 @@
-const inputs = document.querySelectorAll('.controls input');
-
-    function handleUpdate() {
-      const suffix = this.dataset.sizing || '';
-      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
-    }
-// Get elements from the DOM
+// Select DOM elements within the player
 const player = document.querySelector('.player');
-const video = player.querySelector('.viewer');            // video element
+const video = player.querySelector('.player__video');  // Use the class expected by tests
 const progress = player.querySelector('.progress');
 const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const sliders = player.querySelectorAll('.player__slider');
 
-// Function to toggle play/pause
+// Toggle play/pause state
 function togglePlay() {
   if (video.paused) {
     video.play();
@@ -28,12 +22,14 @@ function updateButton() {
   toggle.textContent = icon;
 }
 
-// Skip forward or backward
+// Skip forward or backward (with clamping for rewind)
 function skip() {
-  video.currentTime += parseFloat(this.dataset.skip);
+  const skipTime = parseFloat(this.dataset.skip);
+  // Clamp new time so it doesn't go below 0
+  video.currentTime = Math.max(0, video.currentTime + skipTime);
 }
 
-// Update video properties from sliders (volume / playback speed)
+// Update video properties from slider controls
 function handleRangeUpdate() {
   video[this.name] = this.value;
 }
@@ -41,10 +37,10 @@ function handleRangeUpdate() {
 // Update the progress bar as the video plays
 function handleProgress() {
   const percent = (video.currentTime / video.duration) * 100;
-  progressBar.style.flexBasis = `${percent}%`;
+  progressBar.style.width = `${percent}%`;
 }
 
-// Allow clicking or dragging on the progress bar to scrub the video
+// Allow scrubbing by clicking on the progress bar
 function scrub(e) {
   const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
   video.currentTime = scrubTime;
@@ -59,7 +55,6 @@ video.addEventListener('timeupdate', handleProgress);
 toggle.addEventListener('click', togglePlay);
 
 skipButtons.forEach(button => button.addEventListener('click', skip));
-
 sliders.forEach(slider => slider.addEventListener('change', handleRangeUpdate));
 sliders.forEach(slider => slider.addEventListener('mousemove', handleRangeUpdate));
 
@@ -68,6 +63,3 @@ progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
-
-    inputs.forEach(input => input.addEventListener('change', handleUpdate));
-    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));

@@ -1,5 +1,4 @@
-
-/* Your CSS Code here. *//* Basic page styling */
+/* Page and player styling */
 body {
   margin: 0;
   background: #333;
@@ -11,7 +10,6 @@ body {
   font-family: sans-serif;
 }
 
-/* Player container */
 .player {
   max-width: 750px;
   border: 5px solid #eee;
@@ -19,12 +17,12 @@ body {
 }
 
 /* Video element styling */
-.viewer {
+.player__video {
   width: 100%;
   display: block;
 }
 
-/* Control bar styling */
+/* Control area */
 .controls {
   display: flex;
   flex-wrap: wrap;
@@ -42,7 +40,7 @@ body {
   margin-right: 10px;
 }
 
-/* Progress filled indicator */
+/* Filled progress bar */
 .progress__filled {
   width: 0%;
   background: #f50;
@@ -50,7 +48,7 @@ body {
   transition: width 0.1s;
 }
 
-/* Button styling */
+/* Button styles */
 .player__button {
   background: none;
   border: 0;
@@ -60,7 +58,7 @@ body {
   cursor: pointer;
 }
 
-/* Slider inputs */
+/* Slider styles */
 .player__slider {
   width: 100px;
   margin: 0 10px;

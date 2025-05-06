@@ -2,27 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Video Speed Scrubber</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></video>
-    <div class="speed">
-      <div class="speed-bar">1×</div>
-    </div>
-  </div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
   <title>Video Speed Controller</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="player">
-    <video class="viewer" width="765" height="430" src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+    <!-- Use .player__video so that Cypress can find it -->
+    <video class="player__video" width="765" height="430" src="https://www.w3schools.com/html/mov_bbb.mp4" ></video>
     <div class="controls">
       <!-- Progress Bar -->
       <div class="progress">
@@ -47,11 +33,5 @@
   </div>
 
   <script src="script.js"></script>
-</body>
-</html>
-
-<script  src="./script.js">
-  //Your code goes here
-</script>
 </body>
 </html>
