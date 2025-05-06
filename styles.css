@@ -1,2 +1,67 @@
 
-/* Your CSS Code here. */
+/* Your CSS Code here. *//* Basic page styling */
+body {
+  margin: 0;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+/* Player container */
+.player {
+  max-width: 750px;
+  border: 5px solid #eee;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Video element styling */
+.viewer {
+  width: 100%;
+  display: block;
+}
+
+/* Control bar styling */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+
+/* Progress bar container */
+.progress {
+  flex: 1;
+  height: 10px;
+  background: #ccc;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Progress filled indicator */
+.progress__filled {
+  width: 0%;
+  background: #f50;
+  height: 100%;
+  transition: width 0.1s;
+}
+
+/* Button styling */
+.player__button {
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* Slider inputs */
+.player__slider {
+  width: 100px;
+  margin: 0 10px;
+}

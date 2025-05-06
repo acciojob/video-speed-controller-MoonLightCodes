@@ -13,6 +13,42 @@
       <div class="speed-bar">1×</div>
     </div>
   </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Speed Controller</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="player">
+    <video class="viewer" width="765" height="430" src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+    <div class="controls">
+      <!-- Progress Bar -->
+      <div class="progress">
+        <div class="progress__filled"></div>
+      </div>
+      <!-- Play/Pause Toggle Button -->
+      <button class="player__button toggle" title="Toggle Play">►</button>
+      <!-- Skip Buttons -->
+      <button class="player__button rewind" data-skip="-10">« 10s</button>
+      <button class="player__button forward" data-skip="25">25s »</button>
+      <!-- Volume Control -->
+      <label>
+        Volume
+        <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+      </label>
+      <!-- Playback Speed Control -->
+      <label>
+        Playback Speed
+        <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+      </label>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
 <script  src="./script.js">
   //Your code goes here
